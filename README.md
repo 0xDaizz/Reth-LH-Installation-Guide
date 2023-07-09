@@ -49,5 +49,9 @@ sudo systemctl enable grafana-server
 
 - add dashboard
 1. enter http://localhost:3000 - log in admin/admin
-2. left toggle menu button - administration - Data Sources - Add new data source
-3. 
+2. left toggle menu button - administration - Data Sources - Add new data source - Prometheus
+3. Fill HTTP - Prometheus server URL with http://localhost:9090
+4. click Save & test
+5. left toggle menu button - Dashboards - New - Import
+6. Upload JSON file from [here](https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json)
+7. click Load
