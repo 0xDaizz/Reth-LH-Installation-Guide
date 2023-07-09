@@ -61,6 +61,7 @@ sudo systemctl enable grafana-server
 ## 2. Build Reth and Lighthouse
 
 - Make sure you have already installed Rust!
+- if not : ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh```
 
 ### 2-1. Reth Build
 
