@@ -55,3 +55,58 @@ sudo systemctl enable grafana-server
 5. left toggle menu button - Dashboards - New - Import
 6. Upload JSON file from [here](https://github.com/paradigmxyz/reth/blob/main/etc/grafana/dashboards/overview.json)
 7. click Load
+
+---
+
+## 2. Build Reth and Lighthouse
+
+- Make sure you have already installed Rust!
+
+### 2-1. Reth Build
+
+```
+# Start from Home directory
+cd ~
+
+git clone https://github.com/paradigmxyz/reth
+cd reth
+
+# Choose the version of Reth
+git checkout 0.1.0-alpha.2
+
+(ps. recommend you to build alpha.1 at the moment. alpha 2's sync dashboard is buggy rn)
+
+# Build
+RUSTFLAGS="-C target-cpu=native" cargo build --profile maxperf --features jemalloc
+```
+
+### 2-2. Lighthouse Build
+```
+# Start from Home directory
+cd ~
+
+# dependencies
+sudo apt install -y git gcc g++ make cmake pkg-config llvm-dev libclang-dev clang protobuf-compiler
+
+git clone https://github.com/sigp/lighthouse.git
+cd lighthouse
+git checkout stable
+PROFILE=maxperf make
+```
+
+### 2-3 Run Reth & LH
+- You may customize the command flags as you want.
+  
+- **Make sure you run LH first!! (because of the generation of jwt file)**
+
+Lighthouse
+```
+lighthouse bn  --network mainnet --execution-endpoint http://localhost:8551 --execution-jwt ~/data/jwt.hex --checkpoint-sync-url https://mainnet.checkpoint.sigp.io --disable-deposit-contract-sync --datadir ~/data/lighthouse_data
+```
+
+Reth
+```
+RUST_LOG=info ~/reth/target/maxperf/reth node --datadir ~/data/reth_data --authrpc.jwtsecret ~/data/jwt.hex --ws --ws.addr="127.0.0.1" --ws.api=eth,web3,net,txpool --http --http.api=eth,web3,net,txpool --http.addr="127.0.0.1" --http.port=8545 --metrics 127.0.0.1:9001
+```
+
+Done!
