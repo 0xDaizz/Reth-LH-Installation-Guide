@@ -75,7 +75,7 @@ git clone https://github.com/paradigmxyz/reth
 cd reth
 
 # Choose the version of Reth
-git checkout 0.1.0-alpha.4
+git checkout v0.1.0-alpha.4
 
 # Build
 RUSTFLAGS="-C target-cpu=native" cargo build --profile maxperf --features jemalloc
