@@ -79,6 +79,11 @@ git checkout v0.1.0-alpha.4
 
 # Build
 RUSTFLAGS="-C target-cpu=native" cargo build --profile maxperf --features jemalloc
+
+# Cf. Build on Windows:
+$env:RUSTFLAGS="-C target-cpu=native"; cargo build --profile maxperf
+
+
 ```
 
 ### 2-2. Lighthouse Build
@@ -93,6 +98,10 @@ git clone https://github.com/sigp/lighthouse.git
 cd lighthouse
 git checkout stable
 PROFILE=maxperf make
+
+# Cf. Build on Windows
+$env:PROFILE = "maxperf"; make
+
 ```
 
 ### 2-3 Run Reth & LH
@@ -110,4 +119,16 @@ Reth
 RUST_LOG=info ~/reth/target/maxperf/reth node --datadir ~/data/reth_data --authrpc.jwtsecret ~/data/jwt.hex --ws --ws.addr="127.0.0.1" --ws.api=eth,web3,net,txpool --http --http.api=eth,web3,net,txpool --http.addr="127.0.0.1" --http.port=8545 --metrics 127.0.0.1:9001
 ```
 
+**on Windows:**
+
+Lighthouse
+```
+lighthouse bn --network mainnet --execution-endpoint http://localhost:8551 --execution-jwt ..\data\jwt.hex --checkpoint-sync-url https://mainnet.checkpoint.sigp.io --disable-deposit-contract-sync --datadir ..\data\lighthouse_data
+```
+
+Reth
+```
+$env:RUST_LOG = "info"; ./target/maxperf/reth node --datadir ../data/reth_data --authrpc.jwtsecret ../data/jwt.hex --ws --ws.addr="127.0.0.1" --ws.api=eth,web3,net,txpool --http --http.api=eth,web3,net,txpool --http.addr="127.0.0.1" --http.port=8545 --metrics 127.0.0.1:9001
+```
+ 
 Done!
