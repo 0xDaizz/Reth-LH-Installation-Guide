@@ -124,6 +124,11 @@ lighthouse bn  --network mainnet --execution-endpoint http://localhost:8551 --ex
 Reth
 ```
 RUST_LOG=info ~/reth/target/maxperf/reth node --datadir ~/data/reth_data --authrpc.jwtsecret ~/data/jwt.hex --ws --ws.addr="127.0.0.1" --ws.api=eth,web3,net,txpool --http --http.api=eth,web3,net,txpool --http.addr="127.0.0.1" --http.port=8545 --metrics 127.0.0.1:9001
+
+
+**If you wanna run on WSL and use RPC endpoints on your local computer:**
+
+RUST_LOG=info ~/reth/target/maxperf/reth node --datadir ~/data/reth_data --authrpc.jwtsecret ~/data/jwt.hex --ws --ws.addr="0.0.0.0" --ws.port=8545 --ws.api=eth,web3,net,txpool --http --http.api=eth,web3,net,txpool --http.addr="0.0.0.0" --http.port=8545 --metrics 127.0.0.1:9001
 ```
 
 **on Windows:**
