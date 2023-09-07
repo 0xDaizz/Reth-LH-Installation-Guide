@@ -4,11 +4,17 @@ How to Build Reth + Lighthouse + Prometheus + Grafana
 thanks to : [teebaumcrypto](https://gist.github.com/teebaumcrypto/5c7a30ae9f25d3f628100188149b1fb1)
 
 ## 0. Spec & Env.
-- CPU : AMD Ryzen 5 5600G
-- SSD : Samsung 970 EVO Plus 2TB * 2 = 4TB by mdadm RAID0 of Ubuntu
-- RAM : DDR4 16 * 2 = 32GB
+- CPU : AMD Ryzen 9 7900X (with Eco mode 65W)
+- SSD : WD SN850X 4TB
+- RAM : Patriot DDR5 32 * 2 = 64GB
 
-- OS : Ubuntu 22.04 LTS
+- OS : WSL - Ubuntu 22.04 LTS in Windows 10
+
+> **Note**
+> 
+> If you want to run reth on WSL2, make sure you have expanded your virtual hard disk size before start syncing reth.
+
+
 
 ---
 ## 1. Prometheus & Grafana
