@@ -1,4 +1,4 @@
-# Reth-LH-Installation-Guide <Rework WIP>
+# Reth-LH-Installation-Guide (Rework WIP)
 How to Build Reth + Lighthouse + Prometheus + Grafana
 
 thanks to : [teebaumcrypto](https://gist.github.com/teebaumcrypto/5c7a30ae9f25d3f628100188149b1fb1)
