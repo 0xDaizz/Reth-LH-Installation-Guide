@@ -15,6 +15,10 @@ thanks to : [teebaumcrypto](https://gist.github.com/teebaumcrypto/5c7a30ae9f25d3
 > If you want to run reth on WSL2, make sure you have expanded your virtual hard disk size before start syncing reth.
 
 
+## 0-1. Sync time
+![image](https://github.com/0xDaizz/Reth-LH-Installation-Guide/assets/90135051/1a9c7a67-5392-4bb5-805c-fe5c16c168c6)
+
+About 6~7 days
 
 ---
 ## 1. Prometheus & Grafana
