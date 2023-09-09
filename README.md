@@ -36,10 +36,7 @@ Directory: ```/etc/prometheus/prometheus.yml```
 Replace .yml with [this](https://github.com/paradigmxyz/reth/blob/main/etc/prometheus/prometheus.yml)
 
 ```
-download the file, and then
-
-
-sudo cp /mnt/c/users/<username>/downloads/prometheus.yml /etc/prometheus/prometheus.yml
+cd /etc/prometheus && sudo curl -O https://github.com/paradigmxyz/reth/blob/main/etc/prometheus/prometheus.yml
 ```
 
 - run
